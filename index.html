@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<!-- http://www.revillweb.com/tutorials/angularjs-in-30-minutes-angularjs-tutorial/ -->
 	<meta charset="UTF-8">
 	<title>Hello Angular</title>
 	<script src='angular.js'></script>
@@ -9,10 +10,10 @@
 </head>
 <body>
 	<div id='content' ng-app='MyTutorialApp' ng-controller='MainController'>
-		<div id='content' ng-app='MyTutorialApp' ng-controller='MainController'>
-			<input type='text' ng-model='inputValue' />
-			{{inputValue}}
-		</div>
+		<select ng-model='selectedPerson' ng-options='obj.name for obj in people'></select>
+		<select ng-model='selectedGenre'>
+			<option ng-repeat='label in people[selectedPerson.id].music'>{{label}}</option>
+		</select>
 	</div>
 </body>
 </html>
