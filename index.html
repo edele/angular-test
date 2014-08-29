@@ -9,11 +9,11 @@
 	<script src="maincontroller.js" type="text/javascript"></script>
 </head>
 <body>
-	<div id='content' ng-app='MyTutorialApp' ng-controller='MainController'>
-		<select ng-model='selectedPerson' ng-options='obj.name for obj in people'></select>
-		<select ng-model='selectedGenre'>
-			<option ng-repeat='label in people[selectedPerson.id].music'>{{label}}</option>
-		</select>
-	</div>
+    <div id='content' ng-app='MyTutorialApp' ng-controller='MainController'>
+        <input type='text' ng-model='searchText' />
+        <ul>
+            <li ng-repeat='person in people | filter:searchText'>#{{person.id}} {{person.name}}</li>
+        </ul>
+    </div>
 </body>
 </html>
